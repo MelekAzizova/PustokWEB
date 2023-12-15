@@ -9,7 +9,7 @@ using WebApplicationPustok.Models;
 using WebApplicationPustok.ViewModel.ProductVM;
 
 
-namespace WebApplicationPustok.Controllers
+namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ProductController : Controller

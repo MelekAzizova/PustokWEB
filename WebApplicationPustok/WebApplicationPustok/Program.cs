@@ -26,9 +26,9 @@ namespace WebApplicationPustok
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseHttpsRedirection();
+           
             app.UseStaticFiles();
-
-            app.UseRouting();
 
             app.UseAuthorization();
             app.MapControllerRoute(

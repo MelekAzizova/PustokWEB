@@ -17,6 +17,9 @@
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/plugins.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="~/css/main.css" />
     <link rel="shortcut icon" type="image/x-icon" href="~/image/favicon.ico">
+
+    @await RenderSectionAsync("styles",false)
+
 </head>
 
 <body>
@@ -624,6 +627,8 @@
             <script src="~/js/plugins.js"></script>
             <script src="~/js/ajax-mail.js"></script>
             <script src="~/js/custom.js"></script>
+
+            @await RenderSectionAsync("scripts",false)
 </body>
 
 
