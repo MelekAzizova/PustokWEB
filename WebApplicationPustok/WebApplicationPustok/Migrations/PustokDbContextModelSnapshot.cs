@@ -207,7 +207,7 @@ namespace WebApplicationPustok.Migrations
                     b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("WebApplicationPustok.Models.Settings", b =>
+            modelBuilder.Entity("WebApplicationPustok.Models.Setting", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

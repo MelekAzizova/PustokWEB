@@ -30,6 +30,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
                 Stock = s.Stock,
                 ImageUrl = s.ImageUrl,
                 Description = s.Description,
+                
 
             }).ToListAsync();
             return View(items);
@@ -79,7 +80,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             };
             await _dp.Tags.AddAsync(tag);
             await _dp.SaveChangesAsync();
-            return View();
+            return RedirectToAction(nameof(Index));
 
 
         }
@@ -139,12 +140,6 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             if (data == null) return NotFound();
             _dp.Tags.Remove(data);
             await _dp.SaveChangesAsync();
-            //TempData["Response"] = new
-            //{
-            //    Icon = "Success",
-            //    Title = "Data deleted succesfully"
-
-            //};
             return RedirectToAction(nameof(Index));
 
         }

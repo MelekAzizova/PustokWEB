@@ -96,12 +96,6 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             if (data == null) return NotFound();
             _pd.Sliders.Remove(data);
             await _pd.SaveChangesAsync();
-            //TempData["Response"] = new
-            //{
-            //    Icon = "Success",
-            //    Title = "Data deleted succesfully"
-
-            //};
             return RedirectToAction(nameof(Index));
 
         }
@@ -112,6 +106,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             
             var data = await _pd.Sliders.FindAsync(id);
             if(data==null) return NotFound();
+            
             return View(new SliderUpdateVM
             {
                

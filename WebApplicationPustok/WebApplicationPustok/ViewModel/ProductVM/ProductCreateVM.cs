@@ -26,7 +26,7 @@ namespace WebApplicationPustok.ViewModel.ProductVM
         public IEnumerable<IFormFile>?  Images { get; set; }
         public int CategoryId { get; set; }
 
-        //public IEnumerable<int>? TagIds {  get; set; }
+        public IEnumerable<int>? TagIds {  get; set; }
        
        
     }

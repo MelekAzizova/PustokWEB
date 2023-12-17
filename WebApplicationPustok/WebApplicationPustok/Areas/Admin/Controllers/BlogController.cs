@@ -26,6 +26,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
                 CreatAt = DateTime.Now,
                 UpdatAt = DateTime.Now,
                 IsDeleted = false,
+                Blogs=s.BlogTags.Select(s=>s.Blog).ToList(),
                 
                 
             }).ToListAsync();

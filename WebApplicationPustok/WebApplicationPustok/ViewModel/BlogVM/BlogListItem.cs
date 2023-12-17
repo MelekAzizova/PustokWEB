@@ -12,6 +12,7 @@ namespace WebApplicationPustok.ViewModel.BlogVM
         public DateTime CreatAt { get; set; }
         public DateTime UpdatAt { get; set; }
         public bool IsDeleted { get; set; }
+        public IEnumerable<Blog>? Blogs { get; set; }    
         public IEnumerable<int>? TagIds { get; set; }
 
     }

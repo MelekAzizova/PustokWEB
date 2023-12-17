@@ -24,7 +24,7 @@
         </script>
         } *@
 }
-<div class="card shadow mb-4">
+<div class="card shadow mb-4" >
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Slider</h6>
             <a href="~/Admin/Slider/Create" class="btn btn-outline-success">Create</a>
@@ -38,7 +38,7 @@
                     <th>Description</th>
                     <th>Image</th>
                     <th>Position</th>
-                    <th colspan="2">Action</th>
+                <th class="text-center" colspan="2">Action</th>
                 </thead>
                 <tbody>
                     @foreach(var item in Model)
@@ -47,7 +47,7 @@
                             <td>@item.Id</td>
                             <td>@item.Title</td>
                             <td>@item.Description</td>
-                            <td><img width="200px" src="@item.ImageUrl" /></td>
+                            <td><img width="200px"  src="@item.ImageUrl" /></td>
                             <td>@(item.IsLeft == true ? "justify-content-start" : "justify-content-end")</td>
                             <td class="text-center"><a class="btn btn-outline-info" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
                             <td class="text-center"><a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>

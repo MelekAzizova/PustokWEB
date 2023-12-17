@@ -15,13 +15,11 @@
                 <td>Name</td>
                 <td>Title</td>
                 <td>Description</td>
-
                 <td>CostPrice</td>
                 <td>ProductCode</td>
                 <td>Category</td>
                 <td>ImgFile</td>
                 <td>Discount</td>
-               
                 <td>SellPrice</td>
                 <td>IsDeleted</td>
                 <td>Tag</td>
@@ -38,7 +36,6 @@
                                 <td>@item.Name</td>
                                 <td>@item.Title</td>
                                 <td>@item.Description</td>
-                              
                                 <td>@item.CostPrice</td>
                                 <td>@item.ProductCode</td>
                                 <td>@item.Category.Name</td>
@@ -57,7 +54,17 @@
                                
                                 <td>@item.SellPrice</td>
                                 <td>@item.IsDeleted</td>
-                                <td>@item.TagIds</td>
+                                <td>@item.Category?.Name</td>
+                                <td>@string.Join(",", item.Tags.Select(x => x.Title))</td>
+                               @*  @if (item.Tags == null || item.Tags.Count() == 0)
+                                {
+                                    <td>No tag</td>
+                                }
+                                else
+                                {
+                                    <td>@string.Join(",", item.Tags.Select(x => x.Title))</td>
+                                } *@
+                                @* <td>@item.Tag</td> *@
                                 @* @foreach (var image in item.productImages)
                                 {
                                     <td>@image.ImagePath</td>

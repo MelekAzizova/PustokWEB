@@ -5,7 +5,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Update Slider</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Update Product</h6>
     </div>
     <div class="card-body">
         <form asp-action="Update" method="post">
@@ -54,6 +54,12 @@
                 <input asp-for="CategoryId" class="form-control">
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="TagIds"></label>
+                <input asp-for="TagIds" class="form-control">
+                <span asp-validation-for="TagIds" class="text-danger"></span>
+            </div>
+           
             
            
             <button class="btn btn-success">Submit!</button>

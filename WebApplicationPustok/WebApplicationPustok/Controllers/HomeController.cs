@@ -52,6 +52,11 @@ namespace WebApplicationPustok.Controllers
             return View(vm);
         }
 
+        public async Task<IActionResult> ProductPagination(int page=1,int count=4)
+        {
+            var datas=await _pd.Products.Where(p=>!p.IsDeleted).Take(8).ToListAsync();
+            return Json(datas);
+        }
         
     }
 }
