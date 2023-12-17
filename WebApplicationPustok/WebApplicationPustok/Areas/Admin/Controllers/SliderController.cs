@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using WebApplicationPustok.Context;
 using WebApplicationPustok.Helpers;
 using WebApplicationPustok.Models;
+using WebApplicationPustok.ViewModel.CategoryVM;
 using WebApplicationPustok.ViewModel.SliderVM;
 
 
@@ -28,6 +31,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
                     Description = s.Description,
                     ImageUrl = s.ImageUrl,
                     IsLeft = s.IsLeft,
+                   
                     Id = s.Id
                 }).ToListAsync();
                 return View(items);
@@ -148,6 +152,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
 
 
         }
+       
     }
 
     

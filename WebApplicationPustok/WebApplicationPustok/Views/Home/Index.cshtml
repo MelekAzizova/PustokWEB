@@ -4,10 +4,10 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@section styles{
+@* @section styles{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-}
-@section scripts{
+} *@
+@* @section scripts{
        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </script>
     <script>
@@ -49,7 +49,7 @@
         })
         </script>
 
-}
+} *@
  
 
    <aside class="off-canvas-wrapper">
@@ -483,13 +483,13 @@
                         
                         
                     </ul>
-                    <div class="tab-content" id="myTabContent">
+                   @*  <div class="tab-content" id="myTabContent">
                         <div class="tab-pane show active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
                             <div class="product-slider multiple-row  slider-border-multiple-row  sb-slick-slider"
                                 data-slick-setting='{
                             "autoplay": true,
                             "autoplaySpeed": 8000,
-                            "slidesToShow": 5,
+                            "slidesToShow":4 ,
                             "rows":1,
                             "dots":true
                         }' data-slick-responsive='[
@@ -539,12 +539,12 @@
                                         <div class="price-block">
                                             <span class="price">@item.SellPrice</span>
                                             @* <del class="price-old">£51.20</del> *@
-                                            <span class="price-discount">@item.Discount</span>
+                        @*                     <span class="price-discount">@item.Discount</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            }
+                            } *@
                                
                              
                             </div>
@@ -1117,7 +1117,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </section>

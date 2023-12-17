@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using WebApplicationPustok.Areas.Admin.ViewModels;
 using WebApplicationPustok.Context;
 using WebApplicationPustok.ViewModel.HomeVM;
 using WebApplicationPustok.ViewModel.ProductVM;
@@ -52,11 +52,14 @@ namespace WebApplicationPustok.Controllers
             return View(vm);
         }
 
-        public async Task<IActionResult> ProductPagination(int page=1,int count=4)
-        {
-            var datas=await _pd.Products.Where(p=>!p.IsDeleted).Take(8).ToListAsync();
-            return Json(datas);
-        }
-        
+        //public async Task<IActionResult> ProductPagination(int page = 1, int count = 8)
+        //{
+        //    var items = _pd.Products.Where(p => !p.IsDeleted).Skip((page - 1) * count).Take(count).Select(p => new AdminProductListItemVM
+        //    {
+               
+        //    });
+        //    return Json(items);
+        //}
+
     }
 }

@@ -1,7 +1,19 @@
 ﻿@using WebApplicationPustok.Areas.Admin.ViewModels;
 @model List<AdminProductListItemVM>;
 
-
+@section scripts {
+            fetch("http://localhost:5249/Home/ProductPagination?page=1&count=6")
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+   @*  <script>
+        $("#dataTable").on("click", "#prod-pag a", function (ev) {
+            ev.preventDefault();
+            fetch($(this).attr("href"))
+                .then(res => res.text())
+                .then(data => $("#dataTable").html(data))
+        })
+    </script> *@
+}
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Product</h6>

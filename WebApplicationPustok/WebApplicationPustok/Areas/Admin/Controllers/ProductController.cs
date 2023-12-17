@@ -16,7 +16,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
     public class ProductController : Controller
     {
          PustokDbContext _db;
-        IWebHostEnvironment _env;
+         IWebHostEnvironment _env;
         public ProductController(PustokDbContext dbContext, IWebHostEnvironment env = null)
         {
             _db = dbContext;
@@ -135,14 +135,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
                 }).ToList()
                 
             };
-            //IList<TagProduct> list= new List<TagProduct>();
-            //foreach(var tag in vm.TagIds)
-            //{
-            //    list.Add(new TagProduct
-            //    {
-            //        TagId=id
-            //    })
-            //}
+           
             await _db.Products.AddAsync(product);
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -326,6 +319,12 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
+        }
+
+        public async Task<IActionResult> ProductPagination(int page=1,int count = 4)
+        {
+            var data = await _db.Products.Where(p => !p.IsDeleted).Skip((page-1)*count).Take(count).ToListAsync();
+            return Json(data);
         }
     }
 
