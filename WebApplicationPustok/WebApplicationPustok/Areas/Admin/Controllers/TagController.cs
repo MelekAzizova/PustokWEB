@@ -24,12 +24,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             {
                 Id = s.Id,
                 Title = s.Title,
-                Price = s.Price,
-                Brand = s.Brand,
-                ProductCode = s.ProductCode,
-                Stock = s.Stock,
-                ImageUrl = s.ImageUrl,
-                Description = s.Description,
+               
                 
 
             }).ToListAsync();
@@ -68,13 +63,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             Tag tag = new Tag
             {
                 Title = vm.Title,
-                Description = vm.Description,
-                ImageUrl = await vm.ImgFile.SaveAsync(PathConstants.Product),
-                ProductCode =vm.ProductCode,
-                Price=vm.Price,
-                Stock=vm.Stock,
-                Brand=vm.Brand
-                
+              
 
 
             };
@@ -94,12 +83,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             {
                 Id=data.Id,
                 Title = data.Title,
-                Description = data.Description,
-                ImageUrl = data.ImageUrl,
-                Price=data.Price,
-                Stock=data.Stock,
-                Brand=data.Brand,
-                ProductCode=data.ProductCode
+               
 
             });
 
@@ -118,12 +102,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             if (data == null) return NotFound();
             data.Id = vm.Id;
             data.Title = vm.Title;
-            data.Description = vm.Description;
-            data.ImageUrl = vm.ImageUrl;
-            data.Brand=vm.Brand;
-            data.Stock=vm.Stock;
-            data.ProductCode=vm.ProductCode;
-            data.Price=vm.Price;
+           
             await _dp.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 

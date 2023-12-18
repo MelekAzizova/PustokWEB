@@ -483,8 +483,9 @@
                         
                         
                     </ul>
-                   @*  <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane show active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
+                <div class="tab-content" id="myTabContent">
+                @await Component.InvokeAsync("Product")
+                        @* <div class="tab-pane show active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
                             <div class="product-slider multiple-row  slider-border-multiple-row  sb-slick-slider"
                                 data-slick-setting='{
                             "autoplay": true,
@@ -538,18 +539,28 @@
                                         </div>
                                         <div class="price-block">
                                             <span class="price">@item.SellPrice</span>
-                                            @* <del class="price-old">£51.20</del> *@
-                        @*                     <span class="price-discount">@item.Discount</span>
+                                           <del class="price-old">£51.20</del> 
+                                        <span class="price-discount">@item.Discount</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            } *@
-                               
+                            }
                              
                             </div>
-                        </div>
-                        <div class="tab-pane" id="men" role="tabpanel" aria-labelledby="men-tab">
+                        </div> *@
+
+
+
+
+
+
+
+
+
+
+
+                        @* <div class="tab-pane" id="men" role="tabpanel" aria-labelledby="men-tab">
                             <div class="product-slider multiple-row  slider-border-multiple-row  sb-slick-slider"
                                 data-slick-setting='{
                                         "autoplay": true,
@@ -1116,7 +1127,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> *@
                     </div> 
                 </div>
             </div>

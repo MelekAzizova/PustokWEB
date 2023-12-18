@@ -23,11 +23,9 @@ namespace WebApplicationPustok.ViewModel.ProductVM
         public string ProductCode { get; set; }
         public bool IsDeleted { get; set; } = false;
         public IFormFile ImgFile { get; set; }
-        public IEnumerable<IFormFile>?  Images { get; set; }
+        public IEnumerable<IFormFile>  Images { get; set; }
         public int CategoryId { get; set; }
 
-        public IEnumerable<int>? TagIds {  get; set; }
-       
-       
+        public IEnumerable<int> TagIds {  get; set; }
     }
 }

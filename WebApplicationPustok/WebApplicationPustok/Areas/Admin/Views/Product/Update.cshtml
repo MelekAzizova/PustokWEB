@@ -8,7 +8,7 @@
         <h6 class="m-0 font-weight-bold text-primary">Update Product</h6>
     </div>
     <div class="card-body">
-        <form asp-action="Update" method="post">
+        <form asp-action="Update" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label asp-for="Name"></label>
                 <input asp-for="Name" class="form-control">
@@ -53,13 +53,24 @@
                 <label asp-for="CategoryId"></label>
                 <input asp-for="CategoryId" class="form-control">
                 <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div> 
+
+            <div class="form-group">
+                <label asp-for="ImageFile"></label>
+                <select class="form-control" asp-for="ImageFile" asp-items='@ViewBag.ImageFile'>
+                    <option disabled selected>Select image</option>
+                </select>
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
+            
+           
             <div class="form-group">
                 <label asp-for="TagIds"></label>
-                <input asp-for="TagIds" class="form-control">
+                <select class="form-control" asp-for="TagIds" asp-items='@ViewBag.Tags'>
+                    <option disabled selected>Select tag</option>
+                </select>
                 <span asp-validation-for="TagIds" class="text-danger"></span>
             </div>
-           
             
            
             <button class="btn btn-success">Submit!</button>

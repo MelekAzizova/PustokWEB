@@ -23,8 +23,10 @@ namespace WebApplicationPustok.ViewModel.ProductVM
         public string ProductCode { get; set; }
         public IFormFile? ImageFile { get; set; }
         public IEnumerable<IFormFile>? Images { get; set; }
-        public IEnumerable<int>? TagIds { get; set; }   
-        public IEnumerable<ProductImageVM> ImageUrls { get; set; } = new List<ProductImageVM>();
+        public IEnumerable<int>? TagIds { get; set; }  
+        public IEnumerable<TagProduct> TagProducts { get; set; }
+        public IEnumerable<string>? ImageUrls { get; set; }
+        /*public IEnumerable<ProductImageVM> ImageUrls { get; set; } = new List<ProductImageVM>();*/
 
         // public IFormFile Image {  get; set; }
         // public List<ProductImages> productImages { get; set; }

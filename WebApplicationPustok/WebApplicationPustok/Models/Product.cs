@@ -18,9 +18,10 @@ namespace WebApplicationPustok.Models
         public decimal CostPrice { get; set; }
         [Range(0, 100)]
         public float Discount { get; set; }
-        public ushort Quantity { get; set; }
+       public ushort Quantity { get; set; }
         public string ProductCode { get; set; }
-        public string ImagrUrl {  get; set; }
+        public string ImagrUrl{  get; set; }
+       
         public int  ProductId { get; set; }
         public int CategoryId { get; set; }
         public Category? Category { get; set; }

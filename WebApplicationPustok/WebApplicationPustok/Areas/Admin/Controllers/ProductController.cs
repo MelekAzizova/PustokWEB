@@ -127,13 +127,16 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
                 ProductCode = vm.ProductCode,
 
                 CategoryId = vm.CategoryId,
-                
+
+                TagProducts=vm.TagIds.Select(id=>new TagProduct
+                {
+                    TagId = id
+                }).ToList(),
                 ImagrUrl = await vm.ImgFile.SaveAsync(PathConstants.Product),
                 ProductImages = vm.Images.Select( s => new ProductImages
                 {
                     ImageUrl =  s.SaveAsync(PathConstants.Product).Result
                 }).ToList()
-                
             };
            
             await _db.Products.AddAsync(product);
@@ -141,11 +144,11 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //public async Task<IActionResult> Update(int? id,ProductListItem vm)
+        //public async Task<IActionResult> Update(int? id, ProductListItem vm)
         //{
 
 
-        //    if (id == null || id <= 0) return BadRequest(); 
+        //    if (id == null || id <= 0) return BadRequest();
 
         //    var data = await _db.Products.FindAsync(id);
         //    if (data == null) return NotFound();
@@ -201,37 +204,36 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
         public async Task<IActionResult> Update(int? id)
         {
             if (id == null || id <= 0) return BadRequest();
-           
-            ViewBag.Tags= new SelectList(_db.Tags, nameof(Tag.Id), nameof(Tag.Title));
+            
+            ViewBag.Tags = new SelectList(_db.Tags, nameof(Tag.Id), nameof(Tag.Title));
             ViewBag.Categories = new SelectList(_db.Categories, nameof(Category.Id), nameof(Category.Name));
             var data = await _db.Products
                 .Include(p => p.ProductImages)
-                
+
                 .SingleOrDefaultAsync(p => p.Id == id);
-           
-            
+
+
             if (data == null) return NotFound();
 
             var vm = new ProductUpdateVM
-            { 
+            {
                 CategoryId = data.CategoryId,
-               
-                TagIds=data.TagProducts?.Select(s=>s.TagId),
-                ProductCode =data.ProductCode,
-                Title=data.Title,
+
+                TagIds = data.TagProducts?.Select(s => s.TagId),
+                ProductCode = data.ProductCode,
+                Title = data.Title,
                 CostPrice = data.CostPrice,
                 Description = data.Description,
                 Discount = data.Discount,
                 Name = data.Name,
                 Quantity = data.Quantity,
                 SellPrice = data.SellPrice,
-                
 
-                ImageUrls = data.ProductImages?.Select(pi => new ProductImageVM
-                {
-                    Id = pi.Id,
-                    Url = pi.ImageUrl
-                })
+               
+                
+              
+
+                
                 //CoverImageUrl = data.ImageUrl
             };
 
@@ -273,21 +275,21 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             {
                 ModelState.AddModelError("CostPrice", "Sell price must be bigger than cost price");
             }
-          
-            if(!vm.TagIds.Any())
+
+            if (!vm.TagIds.Any())
             {
                 ModelState.AddModelError("TagIds", "You must add at least 1 tag");
             }
             if (!ModelState.IsValid)
             {
-              
+
                 ViewBag.Categories = new SelectList(_db.Categories, nameof(Category.Id), nameof(Category.Name));
                 return View(vm);
             }
 
             var data = await _db.Products
                 .Include(p => p.ProductImages)
-               
+
                 .SingleOrDefaultAsync(p => p.Id == id);
             if (data == null) return NotFound();
 
@@ -306,7 +308,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             await _db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-       
+
 
         public async Task<IActionResult> Delete(int? id)
         {
