@@ -87,7 +87,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             };
             await _pd.Sliders.AddAsync(slider);
             await _pd.SaveChangesAsync();
-            return View();
+            return RedirectToAction(nameof(Index));
 
 
         }
